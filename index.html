@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPGenius Setup Guide - Complete Tutorial</title>
+    <style>
+        /* Reset and layout base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #eeeeee; /* near white for body text */
+            background: #080808;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header styles */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: #eeeeee;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        /* Content sections */
+        .content-section {
+            background: #171A1F;
+            border-radius: 6px;
+            padding: 35px;
+            margin: 30px 0;
+            border: 1px solid #434e5a;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+            color: #eeeeee; /* near white body text */
+        }
+
+        /* Section titles or headers */
+        .section-title,
+        .header-large {
+            color: #F2F2F2; /* vibrant blue */
+            font-weight: 600;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #1168ba;
+            border-radius: 2px;
+        }
+
+        /* Steps */
+        .step {
+            background: #101010;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 3px solid #425a70;
+            color: #d4d7dd;
+            transition: background 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .step:hover {
+            background: #161a22;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+            transform: none;
+        }
+
+        /* Step number indicator */
+        .step-number {
+            display: inline-block;
+            background: #23272c;
+            color: #eeeeee;
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-right: 15px;
+            box-shadow: none;
+        }
+
+        /* Step title */
+        .step h3 {
+            color: #1168ba; /* vibrant blue for header */
+            font-weight: 600;
+            font-size: 1.5rem;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Text and list content inside steps */
+        .step p, .step ul {
+            color: #eeeeee;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .step ul {
+            margin-left: 20px;
+        }
+
+        .step li {
+            margin: 8px 0;
+        }
+
+        /* Note section */
+        .note-box {
+            background: #202328;
+            border-left: 4px solid #1168ba;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            color: #c4c9d5;
+        }
+
+        .note-box strong {
+            color: #1168ba;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Warning section */
+        .warning-box {
+            background: #23171a;
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            color: #f2a9a9;
+        }
+
+        .warning-box strong {
+            color: #ef4444;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Success section */
+        .success-box {
+            background: #17211a;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            color: #b5debb;
+        }
+
+        .success-box strong {
+            color: #22c55e;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Buttons */
+        .button-link {
+            display: inline-block;
+            background: #7289DA;
+            color: #eeeeee;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px 10px 10px 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: none;
+        }
+
+        .button-link:hover {
+            background: #31343a;
+            color: #cde1ff;
+            box-shadow: none;
+        }
+
+        /* Screenshot Image */
+        .screenshot {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 6px;
+            box-shadow: none;
+            margin: 20px 0;
+        }
+
+        /* Option/Grid layout for choices */
+        .option-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .option-card {
+            background: #202328;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #23272c;
+            transition: border-color 0.3s ease;
+            box-shadow: none;
+            transform: none;
+            color: #eeeeee;
+        }
+
+        .option-card h4 {
+            color: #eeeeee;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #23272c;
+            color: #6ea5ee;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid #23272c;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .step-thumb {
+            max-width: 250px;  /* smaller display size */
+            height: auto;
+            border-radius: 6px;
+            margin-top: 15px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .step-thumb:hover {
+            transform: scale(2.5);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 60px;
+            left: 0; top: 0; width: 100%; height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #a0a8b7;
+        }
+
+        /* Responsive adjustments */
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            .content-section {
+                padding: 25px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .step {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><u>EPGenius Playlist Setup Guide</u></h1>
+            <p>Complete step-by-step tutorial for setting up your curated playlist</p>
+        </header>
+
+        <div class="content-section">
+            <h2 class="section-title">Getting Started</h2>
+            <p>Follow this comprehensive guide to set up a new, curated EPGenius playlist via <a href="https://epgenius.org" target="_blank" style="color: #667eea; font-weight: 600;">epgenius.org</a></p>
+            
+            <div class="warning-box">
+                <strong>⚠️ Important Prerequisites:</strong>
+                You must have your own credentials for the service your chosen playlist uses. You cannot use credentials from a different service. EPGenius does not provide credentials.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Setup Instructions</h2>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <h3>Choose Your Playlist</h3>
+                <p>Start by browsing the available playlists at <a href="https://epgenius.org" target="_blank" style="color: #667eea; font-weight: 600;">epgenius.org</a>. If you're new to this, we recommend sorting by service to find a playlist matching your current service.</p>
+                <div class="note-box">
+                    <strong>💡 Pro Tip:</strong>
+                    Click <b>"Preview List + EPG"</b> to see what categories and channels each playlist contains before committing.
+                </div>
+                <img src="1a.png" alt="sorting" class="step-thumb" onclick="openModal('1a.png')"/>
+                <img src="1b.png" alt="playlist preview" class="step-thumb" onclick="openModal('1b.png')"/>
+                <img src="1c.png" alt="playlist preview site" class="step-thumb" onclick="openModal('1c.png')"/>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <h3>Select Configuration Method</h3>
+                <p>When prompted, click <b>"Automatic"</b> to begin the setup process.</p>
+                <img src="2.png" alt="automatic" class="step-thumb" onclick="openModal('2.png')"/>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <h3>Enter Your Credentials</h3>
+                <p>Choose the option that matches what your seller gave you:</p>
+                
+                <div class="option-group">
+                    <div class="option-card">
+                        <h4>Option A: M3U</h4>
+                        <p>If you were provided an M3U link:</p>
+                        <ul>
+                            <li>Enter your M3U link</li>
+                            <li>Check the box to upload to Google Drive</li>
+                            <li>Click <b>"Generate M3U"</b></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="option-card">
+                        <h4>Option B: Xtream</h4>
+                        <p>If you were provided Xtream credentials:</p>
+                        <ul>
+                            <li>Enter DNS/Server link</li>
+                            <li>Enter Username</li>
+                            <li>Enter Password</li>
+                            <li>Check the box to upload to Google Drive</li>
+                            <li>Click <b>"Generate Xtream"</b></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <strong>💡 Which Option to Choose:</strong>
+                    If you received both an M3U link and Xtream credentials, use <b>Option B: Xtream</b> as it's generally more reliable and less prone to transcription errors.
+                </div>
+                <img src="3a.png" alt="m3u" class="step-thumb" onclick="openModal('3a.png')"/>
+                <img src="3b.png" alt="xtream" class="step-thumb" onclick="openModal('3b.png')"/>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <h3>Upload to Google Drive</h3>
+                <p>Click the <b>"Upload to Google Drive"</b> button.</p>
+                <img src="4.png" alt="upload" class="step-thumb" onclick="openModal('4.png')"/>
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <h3>Sign In to Google</h3>
+                <p>Log into your Google Account when prompted. This allows EPGenius to save your customized playlist to your personal Google Drive so that you automatically receive new playlist updates.</p>
+                <img src="5.png" alt="login" class="step-thumb" onclick="openModal('5.png')"/>
+            </div>
+
+            <div class="step">
+                <span class="step-number">6</span>
+                <h3>Copy Your Links</h3>
+                <p>You'll now see two important links:</p>
+                <ul>
+                    <li><strong>Drive URL</strong> - Your new M3U playlist link</li>
+                    <li><strong>EPG URL</strong> - Your EPG link</li>
+                </ul>
+                <p>Use these links when adding a new playlist to the player of your choice.</p>
+                
+                <div class="warning-box">
+                    <strong>⚠️ Critical:</strong>
+                    Enter these links <b>exactly</b> as they appear. We recommend copying and pasting them directly into your player.
+                </div>
+
+                <p style="margin-top: 20px;"><strong>Recommended apps for entering links:</strong></p>
+                <ul>
+                    <li>Android/Google TV: Use the Google TV app</li>
+                    <li>Amazon Fire TV: Use the Fire TV app</li>
+                    <li>Apple TV: Use the built-in iOS Apple Remote</li>
+                </ul>
+                <img src="6.png" alt="links" class="step-thumb" onclick="openModal('6.png')"/>
+            </div>
+
+            <div class="success-box">
+                <strong>🎉 Congratulations!</strong>
+                Your EPGenius playlist is now set up and ready to use. Enjoy your new, expertly curated playlist! Don't forget to check out the next steps below to make your experience even better.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Next Steps</h2>
+
+            <div class="step">
+                <span class="step-number">7</span>
+                <h3>Join the Discord Community</h3>
+                <p>We highly encourage joining the EPGenius Discord server for:</p>
+                <ul>
+                    <li>Access to FAQs and troubleshooting guides</li>
+                    <li>Direct support from the community and playlist owners</li>
+                    <li>Ability to provide feedback to improve playlists</li>
+                    <li>Playlist recovery (retrieve your links anytime)</li>
+                </ul>
+                <a href="https://discord.gg/pZwcncweFc" target="_blank" class="button-link">Join Discord Server</a>
+            </div>
+
+            <div class="step">
+                <span class="step-number">8</span>
+                <h3>Register Your Playlist</h3>
+                <p>Once in Discord, register your playlist to:</p>
+                <ul>
+                    <li>Retrieve your playlist and EPG links anytime</li>
+                    <li>Access helpful playlist information</li>
+                    <li>Enable automatic updates</li>
+                </ul>
+                <img src="playlistinfo.png" alt="playlistinfo" class="step-thumb" onclick="openModal('playlistinfo.png')"/>
+            </div>
+
+            <div class="step">
+                <span class="step-number">9</span>
+                <h3>Consider Supporting the Playlist Creator</h3>
+                <p>If you're loving your playlist, consider donating to the playlist creator. Benefits include:</p>
+                <ul>
+                    <li>100% of donations go directly to the creator</li>
+                    <li>Priority free updates</li>
+                    <li><strong>Supporter updates:</strong> Keep your TV guide synced with live events, sports, and PPV</li>
+                </ul>
+                <div class="note-box">
+                    <strong>💝 Support:</strong>
+                    The donation link can be found in the playlist selection box from step 2. Thanks for showing your love for their work!
+                </div>
+                <img src="donations.png" alt="donations" class="step-thumb" onclick="openModal('donations.png')"/>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="step">
+                <h3>❓ What if my playlist isn't working?</h3>
+                <p>Check these common issues:</p>
+                <ul>
+                    <li>Verify the the playlist link was copied exactly</li>
+                    <li>Ensure your credentials are active and valid</li>
+                    <li>Make sure you were sold the correct service. Some sellers advertise one service, but provide credentials for a completely different one</li>
+                    <li>Join the Discord server for more troubleshooting steps and help</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>❓ Can I use multiple playlists?</h3>
+                <p>Yes! You can set up multiple playlists. Just remember, you can only view as many connections as your credentials allow.</p>
+            </div>
+
+            <div class="step">
+                <h3>❓ How often do playlists update?</h3>
+                <p>Free updates happen as often as the playlist owners makes updates. Supporter updates happen every 4 hours to keep your playlist and EPG in sync with live events, sports, and PPV.</p>
+            </div>
+
+        <footer>
+            <p style="margin-top: 10px;">© 2025 EPGenius</p>
+        </footer>
+    </div>
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" />
+    <div id="caption"></div>
+</div>
+</body>
+</html>
+
+<script>
+function openModal(imageSrc) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  modal.style.display = "block";
+  modalImg.src = imageSrc;
+}
+
+function closeModal() {
+  const modal = document.getElementById('imageModal');
+  modal.style.display = "none";
+}
+</script>
