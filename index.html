@@ -187,6 +187,23 @@
             font-size: 1.1rem;
         }
 
+        /* Yellow section */
+        .yellow-box {
+            background: #6c5800;
+            border-left: 4px solid #eab308;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            color: #fde68a;
+        }
+
+        .yellow-box strong {
+            color: #eab308;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
         /* Buttons */
         .button-link {
             display: inline-block;
@@ -435,20 +452,18 @@
                 <img src="6.png" alt="links" class="step-thumb" onclick="openModal('6.png')"/>
             </div>
 
-            <div class="success-box">
-                <strong>🎉 Congratulations!</strong>
-                Your EPGenius playlist is now set up and ready to use. Enjoy your new, expertly curated playlist! Don't forget to check out the next steps below to make your experience even better.
+            <div class="yellow-box">
+                <strong>⏳ Almost Done!</strong>
+                Your EPGenius playlist is <i>tehcnically</i> ready to go. <br>
+                <b>However, to take advantage of EPGenius's best feature, automatic playlist updates, you must follow the steps below to register your playlist!</b>
             </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">Next Steps</h2>
 
             <div class="step">
                 <span class="step-number">7</span>
                 <h3>Join the Discord Community</h3>
                 <p>We highly encourage joining the EPGenius Discord server for:</p>
                 <ul>
+                    <li><b>Automatic updates via playlist registration (step 8)</b></li>
                     <li>Access to FAQs and troubleshooting guides</li>
                     <li>Direct support from the community and playlist owners</li>
                     <li>Ability to provide feedback to improve playlists</li>
@@ -460,14 +475,28 @@
             <div class="step">
                 <span class="step-number">8</span>
                 <h3>Register Your Playlist</h3>
-                <p>Once in Discord, register your playlist to:</p>
+                <p>Once you've joined the Discord, head over to the channel <a href="https://discord.com/channels/1382432361840509039/1383563895913844786" target="_blank" style="color: #667eea; font-weight: 600;"># 🚑〢help</a> to register your playlist by sending the message below, replacing DRIVE_URL with your Drive URL from step 6.</p>
                 <ul>
-                    <li>Retrieve your playlist and EPG links anytime</li>
-                    <li>Access helpful playlist information</li>
-                    <li>Enable automatic updates</li>
+                    <li><code>/playlistregister playlist:DRIVE_URL</code></li>
+                </ul><br>
+                Once that's done, you can run the command <code>/playlistinfo</code> in any channel in the EPGenius Discord to: 
+                <ul>
+                    <li>Retrieve your playlist and EPG links</li>
+                    <li>Access helpful playlist information, like your playlist statuses, latest updates, and more!</li>
                 </ul>
+                <img src="playlistregister_1.png" alt="playlistregister_1" class="step-thumb" onclick="openModal('playlistregister_1.png')"/>
+                <img src="playlistregister_2.png" alt="playlistregister_2" class="step-thumb" onclick="openModal('playlistregister_2.png')"/>
                 <img src="playlistinfo.png" alt="playlistinfo" class="step-thumb" onclick="openModal('playlistinfo.png')"/>
             </div>
+
+            <div class="success-box">
+                <strong>🎉 Congratulations!</strong>
+                Your EPGenius playlist is now set up and ready to use. Enjoy your new, expertly curated playlist! Don't forget to check out the next steps below to make your experience even better.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Next Steps</h2>
 
             <div class="step">
                 <span class="step-number">9</span>
@@ -476,7 +505,7 @@
                 <ul>
                     <li>100% of donations go directly to the creator</li>
                     <li>Priority free updates</li>
-                    <li><strong>Supporter updates:</strong> Keep your TV guide synced with live events, sports, and PPV</li>
+                    <li><strong>Supporter Updates:</strong> Keep your TV guide synced with live events, sports, and PPV</li>
                 </ul>
                 <div class="note-box">
                     <strong>💝 Support:</strong>
